@@ -7,6 +7,10 @@ router.post(
   '/', TaskControllers.createTask
   
 );
+router.get(
+  '/', TaskControllers.getAllTasks
+  
+);
 
 
 
