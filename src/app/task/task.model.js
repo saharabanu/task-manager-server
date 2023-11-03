@@ -13,12 +13,11 @@ const taskSchema = new Schema({
   },
   viewDate: {
     type: Date,
-    required: true,
   },
   status: {
     type: String,
     enum: ['all', 'inCompleted', 'completed'],
-    required: true,
+    default: 'inCompleted'
   },
   image: {
     type: String, 
