@@ -3,6 +3,7 @@ const cors = require('cors');
 const express = require('express');
 const httpStatus = require('http-status');
 const globalErrorHandler = require('./app/middlewares/globalErrorHandler');
+const routes = require('./app/routes')
 
 
 const cookieParser = require('cookie-parser');
@@ -25,6 +26,7 @@ app.use(express.json());
 
 app.use(express.urlencoded({ extended: true }));
 
+
 // health api
 app.get('/', (req, res) => {
   res.status(httpStatus.OK).json({
@@ -33,7 +35,7 @@ app.get('/', (req, res) => {
     
   });
 });
-// app.use('/api/v1', routes);
+app.use('/api/v1', routes);
 
 
 //global error handler
