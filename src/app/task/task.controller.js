@@ -65,6 +65,7 @@ const deleteTask = catchAsync(async (req, res) => {
 const updateTask = catchAsync(async (req, res) => {
   const id = req.params.id;
   const data = req.body;
+  // console.log(data)
 
   const result = await TaskServices.updateTask(id, data);
 

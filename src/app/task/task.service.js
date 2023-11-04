@@ -36,6 +36,7 @@ const deleteTask = async (id) => {
 
 // update task
 const updateTask = async (id, payload) => {
+  // console.log(id,payload)
   const isExist = await Task.findById(id);
 
   if (!isExist) {
