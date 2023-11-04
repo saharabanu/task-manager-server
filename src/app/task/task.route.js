@@ -8,6 +8,11 @@ router.post(
   
 );
 router.get(
+  '/:id', TaskControllers.getSingleTask
+  
+);
+
+router.get(
   '/', TaskControllers.getAllTasks
   
 );

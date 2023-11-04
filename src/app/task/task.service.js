@@ -13,9 +13,19 @@ const getAllTasks = async () => {
   return result;
 };
 
+//  get single task
+
+const getSingleTask = async (id) => {
+  const result = await Task.findById(id);
+
+  return result;
+};
+
+
 const TaskServices = {
   createTask,
-  getAllTasks
+  getAllTasks,
+  getSingleTask
 };
 
 

@@ -20,16 +20,30 @@ const createTask = catchAsync(async (req, res) => {
 
 // get all tasks
 
-const getAllTasks = catchAsync(
-  async (req, res) => {
-   
+const getAllTasks = catchAsync(async (req, res) => {
+  const result = await TaskServices.getAllTasks();
+  sendResponse(res, {
+    statusCode: httpStatus.OK,
+    success: true,
+    message: "All tasks retrieved successfully!",
+    data: result,
+  });
+});
 
-    const result = await TaskServices.getAllTasks();
+// get single task
+
+
+
+const getSingleTask = catchAsync(
+  async (req, res) => {
+    const id = req.params.id;
+
+    const result = await TaskServices.getSingleTask(id);
 
     sendResponse(res, {
       statusCode: httpStatus.OK,
       success: true,
-      message: 'All tasks retrieved successfully!',
+      message: 'Single task retrieved successfully!',
       data: result,
     });
   }
@@ -37,6 +51,7 @@ const getAllTasks = catchAsync(
 
 const TaskControllers = {
   createTask,
-  getAllTasks
+  getAllTasks,
+  getSingleTask,
 };
 module.exports = TaskControllers;
