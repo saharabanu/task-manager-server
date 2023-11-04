@@ -60,10 +60,27 @@ const deleteTask = catchAsync(async (req, res) => {
   });
 });
 
+// update task
+
+const updateTask = catchAsync(async (req, res) => {
+  const id = req.params.id;
+  const data = req.body;
+
+  const result = await TaskServices.updateTask(id, data);
+
+  sendResponse(res, {
+    statusCode: httpStatus.OK,
+    success: true,
+    message: "Task updated successfully!",
+    data: result,
+  });
+});
+
 const TaskControllers = {
   createTask,
   getAllTasks,
   getSingleTask,
   deleteTask,
+  updateTask,
 };
 module.exports = TaskControllers;

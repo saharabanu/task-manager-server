@@ -34,11 +34,27 @@ const deleteTask = async (id) => {
   return result;
 };
 
+// update task
+const updateTask = async (id, payload) => {
+  const isExist = await Task.findById(id);
+
+  if (!isExist) {
+    throw new ApiError(httpStatus.NOT_FOUND, "Task not found");
+  }
+
+  const result = await Task.findByIdAndUpdate(id, payload, {
+    new: true,
+  });
+
+  return result;
+};
+
 const TaskServices = {
   createTask,
   getAllTasks,
   getSingleTask,
   deleteTask,
+  updateTask,
 };
 
 module.exports = TaskServices;
