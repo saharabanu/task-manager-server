@@ -32,26 +32,38 @@ const getAllTasks = catchAsync(async (req, res) => {
 
 // get single task
 
+const getSingleTask = catchAsync(async (req, res) => {
+  const id = req.params.id;
 
+  const result = await TaskServices.getSingleTask(id);
 
-const getSingleTask = catchAsync(
-  async (req, res) => {
-    const id = req.params.id;
+  sendResponse(res, {
+    statusCode: httpStatus.OK,
+    success: true,
+    message: "Single task retrieved successfully!",
+    data: result,
+  });
+});
 
-    const result = await TaskServices.getSingleTask(id);
+// delete task
 
-    sendResponse(res, {
-      statusCode: httpStatus.OK,
-      success: true,
-      message: 'Single task retrieved successfully!',
-      data: result,
-    });
-  }
-);
+const deleteTask = catchAsync(async (req, res) => {
+  const id = req.params.id;
+
+  const result = await TaskServices.deleteTask(id);
+
+  sendResponse(res, {
+    statusCode: httpStatus.OK,
+    success: true,
+    message: "Task deleted successfully!",
+    data: result,
+  });
+});
 
 const TaskControllers = {
   createTask,
   getAllTasks,
   getSingleTask,
+  deleteTask,
 };
 module.exports = TaskControllers;

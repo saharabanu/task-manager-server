@@ -1,4 +1,4 @@
-const Task = require('./task.model');
+const Task = require("./task.model");
 
 // create a task
 const createTask = async (payload) => {
@@ -20,13 +20,25 @@ const getSingleTask = async (id) => {
 
   return result;
 };
+// delete task
 
+const deleteTask = async (id) => {
+  const isExist = await Task.findById(id);
+
+  if (!isExist) {
+    throw new ApiError(httpStatus.NOT_FOUND, "Task not found");
+  }
+
+  const result = await Task.findByIdAndDelete(id);
+
+  return result;
+};
 
 const TaskServices = {
   createTask,
   getAllTasks,
-  getSingleTask
+  getSingleTask,
+  deleteTask,
 };
-
 
 module.exports = TaskServices;
