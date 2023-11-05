@@ -9,9 +9,11 @@ const UserServices  = require('./user.service');
 
 const createUser = catchAsync(async (req, res) => {
   const userData = req.body;
-  // console.log(userData, 'from controller');
+ console.log(userData, 'from controller');
 
   const result = await UserServices.createUer(userData);
+
+  console.log(result, ' from controller')
 
   const { refreshToken, ...others } = result;
   const cookieOptions = {
@@ -54,8 +56,23 @@ const loginUser = catchAsync(
   }
 );
 
+// get all user
+const getAllUser = catchAsync(
+  async (req, res) => {
+    const result = await UserServices.getAllUser();
+
+    sendResponse(res, {
+      statusCode: httpStatus.OK,
+      success: true,
+      message: 'Users fetched successfully!',
+      data: result,
+    });
+  }
+);
+
 const UserControllers = {
   createUser,
-  loginUser
+  loginUser,
+  getAllUser
 };
 module.exports = UserControllers

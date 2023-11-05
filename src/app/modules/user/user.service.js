@@ -11,6 +11,7 @@ const jwtHelpers = require('../../../helpers/jwtHelpers');
 // create or register user
 const createUer = async (payload) => {
   const user = await User.create(payload);
+  console.log(user, 'from service')
 
   const { id, email, role } = user;
   // console.log( user, 'From service')
@@ -78,8 +79,18 @@ const loginUser = async (userData) => {
   };
 };
 
+// get all user 
+
+const getAllUser = async () => {
+  const result = await User.find();
+
+  return result;
+};
+
+
 const UserServices = {
   createUer,
-  loginUser
+  loginUser,
+  getAllUser
 };
 module.exports = UserServices;

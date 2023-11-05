@@ -1,4 +1,6 @@
+const ApiError = require("../../errors/ApiError");
 const Task = require("./task.model");
+const httpStatus = require("http-status")
 
 // create a task
 const createTask = async (payload) => {
@@ -36,7 +38,7 @@ const deleteTask = async (id) => {
 
 // update task
 const updateTask = async (id, payload) => {
-  // console.log(id,payload)
+  // console.log(id,payload, 'from service')
   const isExist = await Task.findById(id);
 
   if (!isExist) {

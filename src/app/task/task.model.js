@@ -7,21 +7,25 @@ const taskSchema = new Schema(
       type: String,
       required: true,
     },
+    email:{
+      type:String
+    },
     description: {
       type: String,
       required: true,
     },
-    viewDate: {
+    date: {
       type: Date,
+      
     },
     status: {
       type: String,
       enum: ["inCompleted", "completed"],
       default: "inCompleted",
     },
-    image: {
-      type: String,
-    },
+    // image: {
+    //   type: String,
+    // },
     priority: {
       type: String,
       enum: ["high", "low", "medium"],

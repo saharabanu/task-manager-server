@@ -1,7 +1,7 @@
 ### Server Api : https://task-management-server-sand.vercel.app/
 
 
-I have created this server using Node.js, MongoDB, Express and JavaScript.
+I have created this server using Node.js, MongoDB, Express and JavaScript.I have also using JsonWebtoken, bcrypt for token and hashing password.
 
 ### start server
 
@@ -11,7 +11,7 @@ git clone
 npm i
 ```
 
-- setup .env variables name in config file
+- setup .env variables name in .env.config file
 
 ```
 npm start
@@ -22,9 +22,9 @@ npm start
 ## API Routes
 
 ### User Routes
-- https://task-management-server-sand.vercel.app/api/v1/signup (POST)
-- https://task-management-server-sand.vercel.app/api/v1/login (POST)
-- https://task-management-server-sand.vercel.app/api/v1/user (GET)
+- https://task-management-server-sand.vercel.app/api/v1/user/register (POST)
+- https://task-management-server-sand.vercel.app/api/v1/user/login (POST)
+
 
 ### Task routes
 - https://task-management-server-sand.vercel.app/api/v1/tasks (GET)

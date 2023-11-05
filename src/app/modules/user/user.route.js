@@ -13,6 +13,9 @@ router.post(
 router.post(
   "/login", UserControllers.loginUser
 );
+router.get(
+  "/", UserControllers.getAllUser
+);
 
  const UserRoutes = router;
  module.exports = UserRoutes;
