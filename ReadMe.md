@@ -6,7 +6,10 @@ I have created this server using Node.js, MongoDB, Express and JavaScript.I have
 ### start server
 
 git clone
-
+```
+cd task-management-server
+```
+For Installation
 ```
 npm i
 ```
