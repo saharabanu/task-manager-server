@@ -24,6 +24,16 @@ npm start
 
 ## API Routes
 
+## Create task example
+```
+{
+   "title": "Frontend Part",
+    "description": "Login Page.",
+    "priority": "high"
+    
+  }
+```
+
 ### User Routes
 - https://task-management-server-sand.vercel.app/api/v1/user/register (POST)
 - https://task-management-server-sand.vercel.app/api/v1/user/login (POST)
@@ -32,5 +42,5 @@ npm start
 ### Task routes
 - https://task-management-server-sand.vercel.app/api/v1/tasks (GET)
 - https://task-management-server-sand.vercel.app/api/v1/tasks (POST)
-- https://task-management-server-sand.vercel.app/api/v1/tasks/:id (DELETE)
-- https://task-management-server-sand.vercel.app/api/v1/tasks/:id (PATCH)
+- https://task-management-server-sand.vercel.app/api/v1/tasks/:6547ef4f1da6d32cba7503c5 (DELETE)
+- https://task-management-server-sand.vercel.app/api/v1/tasks/:6547ef4f1da6d32cba7503c5 (PATCH)
